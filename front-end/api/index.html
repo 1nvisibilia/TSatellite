@@ -28,15 +28,15 @@ form.append("time", Date.now());
 for (let i = 0; i &lt; importedFiles.length; i++) {
    form.append("files", importedFiles[i]);
 }
-fetch("/upload", {
+fetch("https://tsatellite.herokuapp.com/upload", {
    method: "POST",
    body: form
 });</code></pre>
          This POST API takes in a HTML form as the body, where the form must contain a field called <code>files</code>,
-         which is an array of JS File Objects. <br /> <br />
+         which is an array of JS File objects. <br /> <br />
          Hence all files in the HTML form will be uploaded to the server, and the server will respond back with a
          special ID associated with the repository of the files just uploaded. <br />
-         <pre><code class="language-javascript">fetch("/upload", {
+         <pre><code class="language-javascript">fetch("https://tsatellite.herokuapp.com/upload", {
    method: "POST",
    body: form
 })
@@ -46,8 +46,8 @@ fetch("/upload", {
    // Example Output of json.fileURL: 522d207d7305b360
 });</code></pre>
          With this given fileURL ID, the user can either access the repository by going to the url:
-         <code>http://localhost:9000/repository/**fileURL**</code> (where **fileURL** is the ID, such as:
-         522d207d7305b360) or using the GET request below to get a detailed directory information as a JSON object.
+         <code>https://tsatellite.herokuapp.com/repository/**fileURL**</code> (where **fileURL** is the ID, such as:
+         522d207d7305b360) or using the POST request below to get a detailed directory information as a JSON object.
       </section>
       <br />
       <br />
@@ -55,17 +55,17 @@ fetch("/upload", {
       <br />
       <br />
       <section>
-         <div class="header">Uploading Files to the Server</div>
-         The following GET requets provide the user with a JSON object that contains information about the repository.
+         <div class="header">Getting The Repository Structure</div>
+         The following POST request provide the user with a JSON object that contains information about the repository.
          <pre><code class="language-javascript">let form = new FormData();
 // replace folderID with the fileURL ID, such as 522d207d7305b360.
 form.append("folderID", folderID);
-fetch("/fileInfo", {
+fetch("https://tsatellite.herokuapp.com/fileInfo", {
    method: "POST",
    body: form
 });</code></pre>
          Then, a JSON object will be returned if the repository associated with the fileURL ID inputted exist:
-         <pre><code class="language-javascript">fetch("/upload", {
+         <pre><code class="language-javascript">fetch("https://tsatellite.herokuapp.com/upload", {
 method: "POST",
 body: form
 })
