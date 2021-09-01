@@ -1,0 +1,28 @@
+html, body {
+   margin: 0;
+   padding: 0;
+   background: url("../images/main-bg.jpg") no-repeat center;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+header {
+   margin: 0.5em 0;
+   text-align: center;
+   font: 100 100px "Inter", sans-serif;
+}
+
+section {
+   font: 300 20px "Inter", sans-serif;
+}
+
+.title {
+   font-size: 23px;
+   font-weight: 500;
+}
+
+#page-wrapper {
+   width: 80vw;
+   margin: auto;
+   padding: 0 5vw;
+}
