@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" type="image/png" href="../images/favicon-16x16.png">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+   <link rel="stylesheet" href="./styles.css">
+   <title>API Documentation | TSatellite</title>
+</head>
+
+<body>
+   <nav>
+      <a class="navBtn" href="/">Home</a><a class="navBtn" href="/api">API</a>
+   </nav>
+   <header>API Document</header>
+   <div id="page-wrapper">
+      <section>
+         <div class="header">Uploading Files to the Server</div>
+         <pre><code class="language-javascript">let form = new FormData();
+form.append("user", "Guest");
+form.append("time", Date.now());
+for (let i = 0; i &lt; importedFiles.length; i++) {
+   form.append("files", importedFiles[i]);
+}
+fetch("/upload", {
+   method: "POST",
+   body: form
+});</code></pre>
+         This POST API takes in a HTML form as the body, where the form must contain a field called <code>files</code>,
+         which is an array of JS File Objects. <br /> <br />
+         Hence all files in the HTML form will be uploaded to the server, and the server will respond back with a
+         special ID associated with the repository of the files just uploaded. <br />
+         <pre><code class="language-javascript">fetch("/upload", {
+   method: "POST",
+   body: form
+})
+.then(response => response.json())
+.then(json => {
+   console.log(json.fileURL);
+   // Example Output of json.fileURL: 522d207d7305b360
+});</code></pre>
+         With this given fileURL ID, the user can either access the repository by going to the url:
+         <code>http://localhost:9000/repository/**fileURL**</code> (where **fileURL** is the ID, such as:
+         522d207d7305b360) or using the GET request below to get a detailed directory information as a JSON object.
+      </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <section>
+         <div class="header">Uploading Files to the Server</div>
+         The following GET requets provide the user with a JSON object that contains information about the repository.
+         <pre><code class="language-javascript">let form = new FormData();
+// replace folderID with the fileURL ID, such as 522d207d7305b360.
+form.append("folderID", folderID);
+fetch("/fileInfo", {
+   method: "POST",
+   body: form
+});</code></pre>
+         Then, a JSON object will be returned if the repository associated with the fileURL ID inputted exist:
+         <pre><code class="language-javascript">fetch("/upload", {
+method: "POST",
+body: form
+})
+.then(response => response.json())
+.then(repoInfo => {
+   console.log(repoInfo);
+});</code></pre>
+         Sample output of <code>repoInfo</code>:
+         <pre><code class="language-JSON">{
+   "path": "./database/522d207d7305b360/files",
+   "name": "files",
+   "children": [
+      {
+         "path": "database\\522d207d7305b360\\files\\purple.png",
+         "name": "purple.png",
+         "size": 16418,
+         "extension": ".png",
+         "type": "file"
+      },
+      {
+         "path": "database\\522d207d7305b360\\files\\red.png",
+         "name": "red.png",
+         "size": 22666,
+         "extension": ".png",
+         "type": "file"
+      }
+   ],
+   "size": 39084,
+   "type": "directory",
+   "birthTime": "2021-09-01T21:10:25.682Z"
+}</code></pre>
+         If the repository does not exist. For example, the user passes in <code>asdfasdfasdfasdf</code>, which is not
+         a valid repository ID, then the output of <code>repoInfo</code> would be a string: <br />
+         <code>"Error: the resource asdfasdfasdfasdf does not exist"</code>
+      </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <section id="coming-soon">More APIs and Functionalities Coming Soon...</section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+   </div>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+   <script src="./script.js"></script>
+</body>
+
+</html>

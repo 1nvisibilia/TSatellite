@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" type="image/png" href="./images/favicon-16x16.png">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Raleway:ital,wght@1,100&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="./styles.css">
+   <title>TSatellite</title>
+</head>
+
+<body>
+   <nav>
+      <a href="/">Home</a><a href="/api">API</a>
+   </nav>
+   <header>TSatellite</header>
+   <p id="sub-text">a simple, easy to use, cloud storage for storing and transferring files</p>
+   <img id="de-focus" src="./images/de-focus.png">
+   <div id="upload">
+      <div id="close-upload">╳</div>
+      <input id="file-input" type="file" multiple>
+      <div id="upload-pool">
+         <span>Click on Add files or drag & drop files in this dotted area to upload.</span>
+         <div id="upload-list"></div>
+      </div>
+      <div id="upload-buttons">
+         <label class="button" for="file-input">Add files</label>
+         <label id="file-upload" class="button">Upload</label>
+      </div>
+      <div id="upload-result">
+         Upload Successful
+         <h6>Files Uploaded By Guest Users Will Be Temporarily Stored For <b>3 Days</b></h6>
+         <a id="result-url">
+            Loading...
+         </a>
+         <div class="button">Copy URL Link</div>
+         <div class="button">Create Another Repository</div>
+      </div>
+   </div>
+   <section id="button-wrap">
+      <div class="button">Upload Files</div>
+      <div></div>
+      <div class="button">Login</div>
+   </section>
+   <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "cloudyy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "directory-tree": "^2.3.1",
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "zip-local": "^0.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Invisibilia",
+  "license": "ISC"
+}

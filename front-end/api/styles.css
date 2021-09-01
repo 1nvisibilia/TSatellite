@@ -1,0 +1,55 @@
+html, body {
+   margin: 0;
+   padding: 0;
+   background: url("../images/main-bg.jpg") no-repeat center;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+header {
+   margin: 0.5em 0;
+   text-align: center;
+   font: 100 100px "Inter", sans-serif;
+}
+
+section {
+   font: 300 20px "Inter", sans-serif;
+}
+
+nav {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+nav a {
+   border: 2px solid rgba(255, 255, 255, 0);
+   font: 100 20px Arial, sans-serif;
+   text-decoration: none;
+   color: black;
+   text-align: center;
+   width: 60px;
+   display: inline-block;
+   padding: 1em;
+   /* transition: border 0.5s, color 0.5s; implemented through JS to avoid initial animation*/ 
+}
+
+nav a:hover {
+   color: rgb(255, 111, 111);
+   border: 2px solid rgb(255, 111, 111);
+}
+
+.header {
+   font-size: 30px;
+}
+
+#page-wrapper {
+   width: 80vw;
+   margin: auto;
+   padding: 0 5vw;
+}
+
+#coming-soon {
+   text-align: center;
+   font-size: 30px;
+}

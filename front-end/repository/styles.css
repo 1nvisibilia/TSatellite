@@ -1,0 +1,78 @@
+html, body {
+   margin: 0;
+   padding: 0;
+   background: url("../images/main-bg.jpg") no-repeat center;
+   background-size: cover;
+   background-attachment: fixed;
+   font-family: Verdana, sans-serif;
+   font-weight: 200;
+}
+
+header {
+   padding: 0.4em;
+   text-align: center;
+   font: 200 100px "Inter", sans-serif;
+}
+
+#page-wrapper {
+   width: 80vw;
+   margin: auto;
+   background-color: rgba(0, 0, 0, 0.3);
+   padding: 0 5vw;
+   min-height: 100vh;
+}
+
+#file-info {
+   border-spacing: 0;
+   width: 90%;
+   margin: 1em auto;
+}
+
+#table {
+   border-spacing: 0;
+   width: 90%;
+   margin: 1em auto;
+   font: 200 25px "Roboto", sans-serif;
+}
+
+#download-all {
+   padding: 0.3em;
+   border-radius: 0.5em;
+   border: 2px solid black;
+   float: right;
+   cursor: pointer;
+}
+
+th {
+   color: white;
+   font-weight: 200;
+   background-color: rgba(0, 0, 0, 0.6);
+   padding: 0.2em 0;
+}
+
+td {
+   padding: 0.2em 0;
+   border-style: none none solid none;
+   border-color: rgb(223, 223, 223);
+   border-width: 2px;
+}
+
+tr td:nth-of-type(1) {
+   width: 70%;
+}
+
+tr td:nth-of-type(2) {
+   vertical-align: middle;
+   text-align: center;
+   width: 5%;
+}
+
+tr td:nth-of-type(3) {
+   text-align: right;
+   width: 15%;
+}
+
+tr td img {
+   cursor: pointer;
+   vertical-align: bottom;
+}
