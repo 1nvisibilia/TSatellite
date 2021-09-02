@@ -148,13 +148,19 @@ function initialize() {
    fileUpload.addEventListener("click", () => {
       // Construct a form data and append all files and key information.
       let form = new FormData();
+      let totalSize = 0;
       form.append("user", "Guest");
       form.append("time", Date.now());
       for (let i = 0; i < importedFiles.length; i++) {
          form.append("files", importedFiles[i]);
-         // form.append("fileNames", importedFiles[i].name);
+         totalSize += importedFiles[i].size;
       }
-      postFilesToServer(form);
+      if (totalSize >= 100000000) {
+         alert("Error: Maximum Total File Size: 100.00MB\nCurrent Total File Size: " +
+            sizeToString(totalSize));
+      } else {
+         postFilesToServer(form);
+      }
    });
 
    login.addEventListener("click", () => {
